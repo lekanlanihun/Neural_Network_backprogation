@@ -24,10 +24,24 @@ using namespace std;
 #include "NeuralNetwork.h"
 
 int main(int argc, char** argv) {
+// values for input, hidden and output nodes;
+int input nodes=20; int hidden_nodes=5; output nodes=2;
+int rows; int cols;int num_outputs;
+        double inputs[rows][cols];
+    double outputs[1];
+    double desired_outputs[num_outputs];
     NeuralNetwork*neural;
-    neural=new NeuralNetwork();
-// double result=square(5);
-    cout<<"result="<<" "<<neural->square(5)<<endl;
+    neural=new NeuralNetwork(input_nodes,hidden_nodes,output_nodes);
+    
+
+    int epochs =1000; int num_steps=4;
+    
+    //for(int i=0;i<epochs;i++){
+            for (int steps = 0; steps < num_steps; steps++) {  
+                neural->step(inputs[steps], desired_outputs);
+               // cout<<steps<<" "<<outputs[0]<<endl;
+            }//end of steps
+    //}
     return 0;
 }
 
